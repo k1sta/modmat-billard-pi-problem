@@ -176,6 +176,23 @@ $
 \end{aligned}
 $
 com $K_1,K_2$ constantes.
+- Lembrando que $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
+- Também vou criar um vetor constante $\vec{m} = \begin{pmatrix} m \\ M\end{pmatrix}$
+- Então podemos reescrever como:
+$
+\begin{aligned}
+\begin{cases}
+      \vec{m} \cdot \vec{\dot p'} &= K_1 \\ 
+      |\vec{\dot p'}|^2 &= K_2 
+\end{cases}
+\end{aligned}
+$
+Dessa forma:
+$|\vec{m}| |\vec{\dot p'}| \cos{\varphi} = K_1 \therefore$
+$(\sqrt{M^2+m^2}) \sqrt{K_2} \cos{\varphi} = K_1 \therefore$
+$\cos{\varphi} = \frac{K_1}{(\sqrt{M^2+m^2}) \sqrt{K_2}} = K_3$, com $K_3$ constante.
+- Depois da reflexão, o ângulo passa a ser $\psi$, mas o mesmo sistema ainda vale, então $\cos{\psi} = K_3$
+- Dessa forma $\psi = \varphi$
 
-
+$\blacksquare 2/2$
 ## 
