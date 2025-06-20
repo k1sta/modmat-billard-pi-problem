@@ -40,16 +40,14 @@ Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
 ### Análise do caso simples $m = M$
 
 $$
-\begin{align}
+\begin{aligned}
 u_0 & = 0 \\
 v_0 & = V \\
-
 u_1 & = \frac{(m - M)u_0 + 2Mv_0}{m + M} \\
 v_1 & = \frac{(M - m)v_0 + 2mu_0}{m + M} \\
-
 u_1 & = \frac{2MV}{2M} = V \\
 v_1 & = \frac {(0)V}{2m}= 0\\
-\end{align}
+\end{aligned}
 $$
 
 1. A bola $M$ bate com velocidade $V$ na bola $m$ e fica em repouso (primeira colisão)
@@ -76,25 +74,31 @@ $$
 
 <!-- SLIDE 6 -->
 ### Início do experimento
+$p = (x(t),y(t))$ e $\dot p = (\dot x(t),\dot y(t))$ 
 ![alt text](images/image1-1.png)
 <!-- SLIDE 7 -->
 ### Primeira colisão entre $m$ e $M$
+$\dot p(0) = (0,V) \vdash p(t_1) = (V,0)$
 ![alt text](images/image1-2.png)
 <!-- SLIDE 8 -->
 ### Colisão entre $m$ e a parede
+$\dot p(t_1) = (V,0) \vdash \dot p(t_2) = (-V,0)$
 ![alt text](images/image1-3.png)
 <!-- SLIDE 9 -->
 ### Segunda colisão entre $m$ e $M$
+$\dot p(t_2) = (-V,0) \vdash \dot p(t_3) = (0,-V)$
 ![alt text](images/image1-4.png)
 <!-- SLIDE 10 -->
 ### $M$ segue infinitamente, com $m$ parado.
+$\dot p(t_{\infty}) = (0,-V)$
 ![alt text](images/image1-5.png)
 
 <!-- SLIDE 11 -->
 ### O que acontece quando $m \neq M$?
 - As reflexões não são mais perfeitas.
+- Não sabemos se eventualmente o ponto P volta (ou seja, se as colisões param)
 
-![alt text](image.png)
+![alt text](images/image-2.png)
 
 
 <!-- SLIDE 12 -->
@@ -120,8 +124,58 @@ $$\vec{p'} = T \cdot \vec{p}$$
 
 $$T = \begin{pmatrix} \sqrt{m} & 0 \\ 0 & \sqrt{M} \end{pmatrix}$$
 
+Então
+
+$$\vec{p'} = \begin{pmatrix} \sqrt{m} x \\ \sqrt{M} y \end{pmatrix}$$ 
+
 
 
 <!-- SLIDE 13 -->
+### Novo espaço após aplicação de $T$
+Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo entre o eixo $X$ e a reta $x=y$ muda.
+
+![alt text](images/image-3.png)
+
+<!-- SLIDE 14 -->
+### Poque aplicamos $T$?
+
+- Nosso objetivo é fazer com que as reflexões sejam reflexões perfeitas
+- Depois que nossas reflexões forem perfeitas, basta refletirmos todo o espaço abaixo do eixo para saber aonde a configuração (nosso ponto $p$) vai parar.
+
+- Precisamos, então, provar que a transformação faz com que as reflexões de $p$ sejam perfeitas.
+
+- Se, em qualquer momento que não seja uma reflexão, $\vec{p}$ tem velocidade $\vec{\dot p}= \begin{pmatrix}u \\ v\end{pmatrix}$, então a velocidade de $\vec{p'}$ é $\vec{\dot p'} = \begin{pmatrix} \sqrt{m} \dot x \\ \sqrt{M} \dot y \end{pmatrix} = \begin{pmatrix} \sqrt{m} u \\ \sqrt{M} v \end{pmatrix}$. Então $T$ transforma as velocidades da mesma forma que transforma as posições.
+
+- Vamos analisar o caso em que ocorre a reflexão na parede ($x(t)=0$), e o caso onde ocorre a reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$.
+
+
+<!-- SLIDE 15 --->
+### Reflexão no eixo $Y$
+
+- Quando a bola menor reflete na parede, sua velocidade $u$ passa a ser $(-u)$.
+Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmatrix} = \begin{pmatrix} -\sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
+
+- Isso só acontece quando o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
+![alt text](images/image-4.png)
+
+- Então essa reflexão é perfeita. 
+
+$\blacksquare 1/2$
+
+<!-- SLIDE 16 --->
+### Reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$
+
+- Lembrando: $u$ é a velocidade da bola $m$ e $v$ a velocidade da bola $M$.
+- Quando há a colisão entre $m$ e $M$, temos:
+$
+\begin{aligned}
+\begin{cases}
+      mu + Mv &= K_1 \\ 
+      mu^2 + Mv^2 &= K_2 
+\end{cases}
+\end{aligned}
+$
+com $K_1,K_2$ constantes.
+
 
 ## 
