@@ -26,12 +26,12 @@ Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
 
 - Variáveis fundamentais
     - Massa das duas bolas $m$ e $M$
-    - A razão entre as massas $\frac{M}{m} = 100^N$. Sendo $N$ o número de digitos de $\pi$ que vamos computar (por que 100)
+    - A razão entre as massas $\frac{M}{m} = 100^N$. Sendo $N$ o número de digitos de $\pi$ que vamos computar (veremos adiante o porque são 100)
 
 - Simplificações e Variáveis Desprezadas:
     - Colisões perfeitamente elásticas
     - Ausência de atrito e resistência do ar
-    - Bolas sem dimensões
+    - Bolas são partículas adimensionais
 
 <!-- SLIDE 4 -->
 
@@ -61,9 +61,9 @@ $$
 
 <!-- SLIDE 5 -->
 
-### O plano de configuração do sistema
+### O espaço de configuração do sistema
 
-- Posição de $m$ coomo $x(t)$ e $M$ como $y(t)$
+- Posição de $m$ como $x(t)$ e $M$ como $y(t)$
 - $P(t) = (x(t), y(t))$
 - Bola $m$ entre a parede e a bola $M$, significa que $0 \leq x(t) \leq y(t)$
 - Colisões
@@ -73,7 +73,31 @@ $$
         - Bola-Bola
             - $x(t) = y(t)$: reflexão complexa do ponto $P$ na fronteira $x = y$. Não é uma simples reflexão óptica. 
 
+
 <!-- SLIDE 6 -->
+### Início do experimento
+![alt text](images/image1-1.png)
+<!-- SLIDE 7 -->
+### Primeira colisão entre $m$ e $M$
+![alt text](images/image1-2.png)
+<!-- SLIDE 8 -->
+### Colisão entre $m$ e a parede
+![alt text](images/image1-3.png)
+<!-- SLIDE 9 -->
+### Segunda colisão entre $m$ e $M$
+![alt text](images/image1-4.png)
+<!-- SLIDE 10 -->
+### $M$ segue infinitamente, com $m$ parado.
+![alt text](images/image1-5.png)
+
+<!-- SLIDE 11 -->
+### O que acontece quando $m \neq M$?
+- As reflexões não são mais perfeitas.
+
+![alt text](image.png)
+
+
+<!-- SLIDE 12 -->
 
 ## O pulo do gato
 
@@ -83,9 +107,9 @@ $$
 
 Definimos novas coordenadas $(x', y')$
 
-$$x' = \sqrt{M} \cdot y$$
+$$x' = \sqrt{m} \cdot x$$
 
-$$y' = \sqrt{m} \cdot x$$
+$$y' = \sqrt{M} \cdot y$$
 
 $$\vec{p} = \begin{pmatrix} x \\ y \end{pmatrix}$$
 
@@ -94,10 +118,10 @@ $$\vec{p'} = \begin{pmatrix} x' \\ y' \end{pmatrix}$$
 A transformação é uma operação linear que nos leva de $\vec{p}$ para $\vec{p'}$, e por isso pode ser representada por uma matriz de transformação $T$, tal que:
 $$\vec{p'} = T \cdot \vec{p}$$
 
-$$T = \begin{pmatrix} 0 & \sqrt{M} \\ \sqrt{m} & 0 \end{pmatrix}$$
+$$T = \begin{pmatrix} \sqrt{m} & 0 \\ 0 & \sqrt{M} \end{pmatrix}$$
 
 
 
-<!-- SLIDE 7 -->
+<!-- SLIDE 13 -->
 
 ## 
