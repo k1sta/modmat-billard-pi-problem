@@ -144,6 +144,8 @@ Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo en
 
 - Vamos analisar o caso em que ocorre a reflexão na parede ($x(t)=0$), e o caso onde ocorre a reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$.
 
+- Obs: Quando aplicamos $T$, o nosso novo ângulo $\alpha$ é tal que $\tan{\alpha}=\frac{\sqrt{m}}{\sqrt{M}}$. Logo $\alpha = \arctan{\sqrt{\frac{m}{M}}}$. Usaremos isso no futuro.
+
 <!-- SLIDE 15 --->
 ## Reflexão no eixo $Y$
 
@@ -197,28 +199,86 @@ $\blacksquare 2/2$
 
 - Pelo que sabemos até agora, o número de reflexões ópticas poderia ser infinito. Precisamos demonstrar que esse número é finito.
 
-Enunciamos, e vamos provar em seguida, o se3wguinte teorema:
+Enunciamos, e vamos provar em seguida, o seguinte teorema:
 
 
 - <b>Lema:</b>
 
     - <b>(a)</b> O número máximo de reflexões do ponto de bilhar dentro de um ângulo $\alpha$, considerando todas as trajetórias possíveis, é finito.
 
-    - <b>(b)</b> Esse número é igual a $\frac{\pi}{\alpha}$ (arredondado pra cima se não for inteiro).
+    - <b>(b)</b> Esse número é igual a $\frac{\pi}{\alpha}$ quando $\frac{\pi}{\alpha} \in \mathbb{Z}$, e igual a $[\frac{\pi}{\alpha}]+1$ do contrário.
 
-    - <b>(c)</b> Se o raio inicial for paralelo a um dos lados do ângulo $\alpha$, então o número total de reflexões nessa trajetória é um menos do que o máximo. ou seja, $\frac{\pi}{\alpha}-1$ arredondado pra cima.
+    - <b>(c)</b> Se o raio inicial for paralelo a um dos lados do ângulo $\alpha$, então o número total de reflexões nessa trajetória é um menos do que o máximo. ou seja, $\frac{\pi}{\alpha}-1$ quando $\frac{\pi}{\alpha} \in \mathbb{Z}$, e igual a $[\frac{\pi}{\alpha}]$ do contrário.
+
+Obs: Vamos provar apenas o caso em que é paralelo, pois é o único caso que usaremos
+
+Vamos "desdobrar" o ângulo $\alpha$ juntamente com a trajetória de bilhar $\gamma$. A Imagem da trajetória $\gamma$ é $k$, e já que as reflexões são ópticas, ela faz uma linha reta
 
 <!-- SLIDE 18 --> 
-### Prova do Lema anterior
-
-Vamos "desdobrar" o ângulo $\alpha$ juntamente com a trajetória de bilhar $\gamma$. A Imagem da trajetória $\gamma$ é $k$, e já que as reflexões são ópticas, ela faz uma linha reta:
+## Prova do Lema anterior
 
 ![alt text](images/image-5.png)
 
-- A linha $k$ intersecta uma quantidade finita de cópias do ângulo $\alpha$, e esse número de intersecções coincide com o número de reflexões de $\gamma$ dentro do ângulo $\alpha$. Então o número de intersecções é finito.
-- a
-$\square 1/3$
-- b
-$\blacksquare 3/3$
+- A linha $k$ intersecta uma quantidade finita de cópias do ângulo $\alpha$, e esse número de intersecções coincide com o número de reflexões de $\gamma$ dentro do ângulo $\alpha$. Então o número de intersecções é finito. $\square 1/3$
+- Se $n$ é o número máximo de reflexões, temos $n\alpha=\pi$, ou $n\alpha >\pi>(n-1)\alpha$. No primeiro caso, $n = \frac{\pi}{\alpha}$, no segundo caso, $n = [\frac{\pi}{\alpha}]+1$. $\square 2/3$ 
+- Quando $k$ é paralelo ao lado do ângulo $\alpha$, então a possível intersecção final não acontece. $\blacksquare 3/3$
 
 <!-- SLIDE 19 -->
+
+## Prova do teorema $\Pi=31415926535897\dots$
+
+Com todas as ferramentas que criamos, podemos, agora, analisar a excepcionalidade do sistema "parede-bola-bola". Tome o número de reflexões $\Pi(N)$. Suponha, novamente, o raio $k$ que descreve o desdobramento da trajetória $\gamma$ do sistema na configuração $\alpha = AOB$. O início de $\gamma$ (i.e., antes do primeiro choque) deve ser paralelo ao eixo $Y$, assim como $k$.
+
+![alt text](images/image5.png)
+
+Dessa maneira, pelo Lema (C), o número de reflexões nos "lados do ângulo $\alpha$" é igual a $[\pi/\alpha]$, caso $\pi/\alpha$ não seja um inteiro. Nesse caso:
+
+$$
+\alpha = \arctan{\sqrt{\frac{m}{M}}} = \arctan{\sqrt{\frac{m}{m \cdot 100^N}}} = \arctan{(10^{-N})}
+$$
+
+Repare que, para $N=0$:
+
+$$
+\alpha = \arctan (1) \implies \alpha = \frac{\pi}{4} \newline \frac{\pi}{\alpha} = 4
+$$
+
+Então a primeira parte do Lema (c) vale: 
+
+$$
+\Pi(0)=[4] - 1 = 3
+$$ 
+
+Entretanto, para $N\ge1$, $\alpha = \arctan(10^{-N})$ não é um ângulo do tipo $\pi/c$ com $c\ge1$ tal que $c\in\mathbb{N}$. Portanto, é um ângulo arbitrário que não consegue mensurar um número racional de graus $(180/k)\degree$. Nesse contexto, a segunda parte do Lema (C) é aplicável e consequentemente achamos a fórmula exata:
+
+$$
+\Pi(N) = \left[\frac{\pi}{\arctan(10^{-N})}\right]
+$$
+
+<!-- 
+proof roadmap
+k começa sempre paralelo ao eixo y pois, por hipotese, a bola m começa em repouso
+
+de acordo com o lema 2 (c), o numero de reflexoes para o angulo $\alpha$ é $\frac{\pi}{\alpha}, a menos que isso seja um inteiro, mas no nosso caso:
+
+
+-->
+
+$$
+\arctan{x} = \int^x_0{\frac{dt}{1+t^2}} = \int^x_0 \sum^{\infty}_{n=0}(-t^2)^ndt = \sum^{\infty}_{n=0}\frac{(-1)^nx^{2n+1}}{2n+1}
+$$
+
+$$
+\arctan{x} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots
+$$
+
+    
+ logo, 
+
+
+<!-- Referência -->
+## Referências
+1. GALPERIN, G. PLAYING POOL WITH π (THE NUMBER π FROM A BILLIARD POINT OF VIEW). 9 dez. 2003.
+2. 3BLUE1BROWN. The most unexpected answer to a counting puzzle. YouTube, 13 jan. 2019. Disponível em: <https://youtu.be/HEfHFsfGXjs>. Acesso em: 21 jun. 2025.
+3. 3BLUE1BROWN. There’s more to those colliding blocks that compute pi. YouTube, 13 mar. 2025. Disponível em: <https://youtu.be/6dTyOl1fmDo>. Acesso em: 21 jun. 2025.
+4. STAND-UP MATHS. We calculated pi with colliding blocks. Youtube, 13 mar. 2025. Disponível em: <https://youtu.be/vlUTlbZT4ig>. Acesso em: 21 jun. 2025.
