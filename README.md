@@ -95,7 +95,7 @@ $\vec{\dot p}(t_{\infty}) = (0,-V)$
 
 <!-- SLIDE 11 -->
 ### O que acontece quando $m \neq M$?
-- As reflexões não são mais perfeitas.
+- As reflexões não são mais ópticas.
 - Não sabemos se eventualmente o ponto P volta (ou seja, se as colisões param)
 
 ![alt text](images/image-2.png)
@@ -139,10 +139,10 @@ Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo en
 <!-- SLIDE 14 -->
 ### Poque aplicamos $T$?
 
-- Nosso objetivo é fazer com que as reflexões sejam reflexões perfeitas
-- Depois que nossas reflexões forem perfeitas, basta refletirmos todo o espaço abaixo do eixo para saber aonde a configuração (nosso ponto $p$) vai parar.
+- Nosso objetivo é fazer com que as reflexões sejam reflexões ópticas
+- Depois que nossas reflexões forem ópticas, basta refletirmos todo o espaço abaixo do eixo para saber aonde a configuração (nosso ponto $p$) vai parar.
 
-- Precisamos, então, provar que a transformação faz com que as reflexões de $p$ sejam perfeitas.
+- Precisamos, então, provar que a transformação faz com que as reflexões de $p$ sejam ópticas.
 
 - Se, em qualquer momento que não seja uma reflexão, $\vec{p}$ tem velocidade $\vec{\dot p}= \begin{pmatrix}u \\ v\end{pmatrix}$, então a velocidade de $\vec{p'}$ é $\vec{\dot p'} = \begin{pmatrix} \sqrt{m} \dot x \\ \sqrt{M} \dot y \end{pmatrix} = \begin{pmatrix} \sqrt{m} u \\ \sqrt{M} v \end{pmatrix}$. Então $T$ transforma as velocidades da mesma forma que transforma as posições.
 
@@ -158,7 +158,7 @@ Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmat
 - Isso só acontece quando o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
 ![alt text](images/image-4.png)
 
-- Então essa reflexão é perfeita. 
+- Então essa reflexão é óptica. 
 
 $\blacksquare 1/2$
 
