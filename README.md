@@ -74,23 +74,23 @@ $$
 
 <!-- SLIDE 6 -->
 ### Início do experimento
-$p = (x(t),y(t))$ e $\dot p = (\dot x(t),\dot y(t))$ 
+$\vec{p} = (x(t),y(t)) = (u,v) $ e $\vec{\dot p} = (\dot x(t),\dot y(t))$ 
 ![alt text](images/image1-1.png)
 <!-- SLIDE 7 -->
 ### Primeira colisão entre $m$ e $M$
-$\dot p(0) = (0,V) \vdash p(t_1) = (V,0)$
+$\vec{\dot p}(0) = (0,V) \vdash \vec{\dot p}(t_1) = (V,0)$
 ![alt text](images/image1-2.png)
 <!-- SLIDE 8 -->
 ### Colisão entre $m$ e a parede
-$\dot p(t_1) = (V,0) \vdash \dot p(t_2) = (-V,0)$
+$\vec{\dot p}(t_1) = (V,0) \vdash \vec{\dot p}(t_2) = (-V,0)$
 ![alt text](images/image1-3.png)
 <!-- SLIDE 9 -->
 ### Segunda colisão entre $m$ e $M$
-$\dot p(t_2) = (-V,0) \vdash \dot p(t_3) = (0,-V)$
+$\vec{\dot p}(t_2) = (-V,0) \vdash \vec{\dot p}(t_3) = (0,-V)$
 ![alt text](images/image1-4.png)
 <!-- SLIDE 10 -->
 ### $M$ segue infinitamente, com $m$ parado.
-$\dot p(t_{\infty}) = (0,-V)$
+$\vec{\dot p}(t_{\infty}) = (0,-V)$
 ![alt text](images/image1-5.png)
 
 <!-- SLIDE 11 -->
