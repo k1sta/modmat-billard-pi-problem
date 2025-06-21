@@ -1,11 +1,13 @@
 # modmat-billard-pi-problem
 
+
 <!-- SLIDE 1 -->
 ## Jogando Sinuca com $\pi$ 
 
 ### Como o número de colisões em um sistema mecânico computa os digitos de $\pi$
 
 Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
+
 
 <!-- SLIDE 2 -->
 ## Definição do Problema
@@ -21,7 +23,6 @@ Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
 
 
 <!-- SLIDE 3 -->
-
 ## Variáveis e Suposições do Sistema
 
 - Variáveis fundamentais
@@ -34,7 +35,6 @@ Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
     - Bolas são partículas adimensionais
 
 <!-- SLIDE 4 -->
-
 ## O que realmente acontece nas colisões?
 
 ### Análise do caso simples $m = M$
@@ -55,11 +55,8 @@ $$
 3. A bola $m$ bate com velocidade $-V$ na bola $M$ e fica em repouso (terceira colisão)
 4. A bola $M$ segue indefinidamente com velocidade $-V$
 
-## Modelagem Matemática (e computacional)
-
 <!-- SLIDE 5 -->
-
-### O espaço de configuração do sistema
+## O espaço de configuração do sistema
 
 - Posição de $m$ como $x(t)$ e $M$ como $y(t)$
 - $P(t) = (x(t), y(t))$
@@ -71,43 +68,44 @@ $$
         - Bola-Bola
             - $x(t) = y(t)$: reflexão complexa do ponto $P$ na fronteira $x = y$. Não é uma simples reflexão óptica. 
 
-
 <!-- SLIDE 6 -->
-### Início do experimento
+## Início do experimento
 $\vec{p} = (x(t),y(t)) = (u,v) $ e $\vec{\dot p} = (\dot x(t),\dot y(t))$ 
 ![alt text](images/image1-1.png)
+
 <!-- SLIDE 7 -->
-### Primeira colisão entre $m$ e $M$
+## Primeira colisão entre $m$ e $M$
 $\vec{\dot p}(0) = (0,V) \vdash \vec{\dot p}(t_1) = (V,0)$
 ![alt text](images/image1-2.png)
+
 <!-- SLIDE 8 -->
-### Colisão entre $m$ e a parede
+## Colisão entre $m$ e a parede
 $\vec{\dot p}(t_1) = (V,0) \vdash \vec{\dot p}(t_2) = (-V,0)$
 ![alt text](images/image1-3.png)
+
 <!-- SLIDE 9 -->
-### Segunda colisão entre $m$ e $M$
+## Segunda colisão entre $m$ e $M$
 $\vec{\dot p}(t_2) = (-V,0) \vdash \vec{\dot p}(t_3) = (0,-V)$
 ![alt text](images/image1-4.png)
+
 <!-- SLIDE 10 -->
-### $M$ segue infinitamente, com $m$ parado.
+## $M$ segue infinitamente, com $m$ parado.
 $\vec{\dot p}(t_{\infty}) = (0,-V)$
 ![alt text](images/image1-5.png)
 
 <!-- SLIDE 11 -->
-### O que acontece quando $m \neq M$?
+## O que acontece quando $m \neq M$?
 - As reflexões não são mais ópticas.
 - Não sabemos se eventualmente o ponto P volta (ou seja, se as colisões param)
 
 ![alt text](images/image-2.png)
 
-
 <!-- SLIDE 12 -->
-
 ## O pulo do gato
 
 ### A chave para simplificar o problema
 
-- Tornar a reflexão na fronteira $x = y$ simples
+Tornar a reflexão na fronteira $x = y$ simples
 
 Definimos novas coordenadas $(x', y')$
 
@@ -128,16 +126,14 @@ Então
 
 $$\vec{p'} = \begin{pmatrix} \sqrt{m} x \\ \sqrt{M} y \end{pmatrix}$$ 
 
-
-
 <!-- SLIDE 13 -->
-### Novo espaço após aplicação de $T$
+## Novo espaço após aplicação de $T$
 Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo entre o eixo $X$ e a reta $x=y$ muda.
 
 ![alt text](images/image-3.png)
 
 <!-- SLIDE 14 -->
-### Poque aplicamos $T$?
+## Poque aplicamos $T$?
 
 - Nosso objetivo é fazer com que as reflexões sejam reflexões ópticas
 - Depois que nossas reflexões forem ópticas, basta refletirmos todo o espaço abaixo do eixo para saber aonde a configuração (nosso ponto $p$) vai parar.
@@ -148,9 +144,8 @@ Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo en
 
 - Vamos analisar o caso em que ocorre a reflexão na parede ($x(t)=0$), e o caso onde ocorre a reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$.
 
-
 <!-- SLIDE 15 --->
-### Reflexão no eixo $Y$
+## Reflexão no eixo $Y$
 
 - Quando a bola menor reflete na parede, sua velocidade $u$ passa a ser $(-u)$.
 Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmatrix} = \begin{pmatrix} -\sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
@@ -160,10 +155,10 @@ Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmat
 
 - Então essa reflexão é óptica. 
 
-$\blacksquare 1/2$
+$\square 1/2$
 
 <!-- SLIDE 16 --->
-### Reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$
+## Reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$
 
 - Lembrando: $u$ é a velocidade da bola $m$ e $v$ a velocidade da bola $M$.
 - Quando há a colisão entre $m$ e $M$, temos:
@@ -175,7 +170,7 @@ $
 \end{cases}
 \end{aligned}
 $
-com $K_1,K_2$ constantes.
+com $K_1,K_2$ constantes pela conservação do momento linear e da energia cinética.
 - Lembrando que $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
 - Também vou criar um vetor constante $\vec{m} = \begin{pmatrix} m \\ M\end{pmatrix}$
 - Então podemos reescrever como:
@@ -195,4 +190,35 @@ $\cos{\varphi} = \frac{K_1}{(\sqrt{M^2+m^2}) \sqrt{K_2}} = K_3$, com $K_3$ const
 - Dessa forma $\psi = \varphi$
 
 $\blacksquare 2/2$
-## 
+
+
+<!-- SLIDE 17 -->
+## Número de Reflexões Ópticas
+
+- Pelo que sabemos até agora, o número de reflexões ópticas poderia ser infinito. Precisamos demonstrar que esse número é finito.
+
+Enunciamos, e vamos provar em seguida, o se3wguinte teorema:
+
+
+- <b>Lema:</b>
+
+    - <b>(a)</b> O número máximo de reflexões do ponto de bilhar dentro de um ângulo $\alpha$, considerando todas as trajetórias possíveis, é finito.
+
+    - <b>(b)</b> Esse número é igual a $\frac{\pi}{\alpha}$ (arredondado pra cima se não for inteiro).
+
+    - <b>(c)</b> Se o raio inicial for paralelo a um dos lados do ângulo $\alpha$, então o número total de reflexões nessa trajetória é um menos do que o máximo. ou seja, $\frac{\pi}{\alpha}-1$ arredondado pra cima.
+
+<!-- SLIDE 18 --> 
+### Prova do Lema anterior
+
+Vamos "desdobrar" o ângulo $\alpha$ juntamente com a trajetória de bilhar $\gamma$. A Imagem da trajetória $\gamma$ é $k$, e já que as reflexões são ópticas, ela faz uma linha reta:
+
+![alt text](images/image-5.png)
+
+- A linha $k$ intersecta uma quantidade finita de cópias do ângulo $\alpha$, e esse número de intersecções coincide com o número de reflexões de $\gamma$ dentro do ângulo $\alpha$. Então o número de intersecções é finito.
+- a
+$\square 1/3$
+- b
+$\blacksquare 3/3$
+
+<!-- SLIDE 19 -->

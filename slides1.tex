@@ -1,0 +1,248 @@
+%% AI INTERPRETATION:
+%% This Markdown document is a structured, slide-based presentation intended to explain a physical and mathematical model that relates billiards and the digits of π.
+%% I interpret top-level headings (##) as individual slide titles, and lower-level headings (###) or bullet points as the content within each slide.
+%% The initial title slide includes a main title, subtitle, and author list.
+%% LaTeX Beamer will be used with a clean, modern theme and code listings, equations, and placeholder images preserved.
+%% Each image reference will be replaced with a placeholder box and caption, with comments to guide image replacement.
+
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegray}{gray}{0.9}
+\lstset{
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    language=Python
+}
+
+\title{Jogando Sinuca com $\pi$}
+\subtitle{Como o número de colisões em um sistema mecânico computa os dígitos de $\pi$}
+\author{Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Definição do Problema}
+\textbf{Objetivo:} Calcular a quantidade de colisões em um sistema idealizado
+\begin{itemize}
+  \item \textbf{Sistema Físico:}
+  \begin{itemize}
+    \item Parede fixa em $x = 0$
+    \item Duas bolas de massa $m$ (pequena) e $M$ (grande)
+    \item Movimento unidimensional (eixo $X$)
+    \item Bola $m$ em repouso entre a parede e $M$
+    \item Bola $M$ com velocidade $V$ em direção a $m$
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Variáveis e Suposições do Sistema}
+\begin{itemize}
+  \item \textbf{Variáveis fundamentais}
+    \begin{itemize}
+      \item Massas $m$ e $M$
+      \item Razão entre massas $\frac{M}{m} = 100^N$
+    \end{itemize}
+  \item \textbf{Simplificações}
+    \begin{itemize}
+      \item Colisões perfeitamente elásticas
+      \item Sem atrito ou resistência do ar
+      \item Bolas como partículas adimensionais
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que realmente acontece nas colisões?}
+\textbf{Análise do caso simples $m = M$}
+\[
+\begin{aligned}
+u_0 & = 0 \\
+v_0 & = V \\
+u_1 & = \frac{(m - M)u_0 + 2Mv_0}{m + M} = V \\
+v_1 & = \frac{(M - m)v_0 + 2mu_0}{m + M} = 0
+\end{aligned}
+\]
+\begin{enumerate}
+  \item $M$ bate em $m$: $M$ para, $m$ segue com $V$
+  \item $m$ bate na parede: volta com $-V$
+  \item $m$ bate em $M$: $m$ para, $M$ segue com $-V$
+  \item $M$ segue indefinidamente
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{O espaço de configuração do sistema}
+\begin{itemize}
+  \item $x(t)$: posição de $m$, $y(t)$: posição de $M$
+  \item $P(t) = (x(t), y(t))$
+  \item Restrições: $0 \leq x(t) \leq y(t)$
+  \item Colisões:
+    \begin{itemize}
+      \item Bola-Parede: $x(t) = 0$, reflexão no eixo $Y$
+      \item Bola-Bola: $x(t) = y(t)$, reflexão não trivial na fronteira $x = y$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slides 6–10: Use consistent structure with image placeholders
+\begin{frame}{Início do experimento}
+$\vec{p} = (x(t),y(t)) = (u,v), \quad \vec{\dot p} = (\dot x(t),\dot y(t))$
+\vspace{1em}
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image1-1.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{Primeira colisão entre $m$ e $M$}
+$\vec{\dot p}(0) = (0,V) \vdash \vec{\dot p}(t_1) = (V,0)$
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image1-2.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{Colisão entre $m$ e a parede}
+$\vec{\dot p}(t_1) = (V,0) \vdash \vec{\dot p}(t_2) = (-V,0)$
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image1-3.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{Segunda colisão entre $m$ e $M$}
+$\vec{\dot p}(t_2) = (-V,0) \vdash \vec{\dot p}(t_3) = (0,-V)$
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image1-4.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{$M$ segue infinitamente, com $m$ parado}
+$\vec{\dot p}(t_{\infty}) = (0,-V)$
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image1-5.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{O que acontece quando $m \neq M$?}
+\begin{itemize}
+  \item Reflexões não são mais ópticas
+  \item Não sabemos se $P$ retorna (se as colisões param)
+\end{itemize}
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image-2.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{O pulo do gato}
+\textbf{A chave para simplificar o problema:}
+\begin{itemize}
+  \item Transformar a reflexão em $x = y$ em reflexão óptica
+  \item Novas coordenadas:
+  \[
+  x' = \sqrt{m} \cdot x,\quad y' = \sqrt{M} \cdot y
+  \]
+  \[
+  \vec{p} = \begin{pmatrix} x \\ y \end{pmatrix},\quad
+  \vec{p'} = \begin{pmatrix} x' \\ y' \end{pmatrix} = T \cdot \vec{p}
+  \]
+  \[
+  T = \begin{pmatrix} \sqrt{m} & 0 \\ 0 & \sqrt{M} \end{pmatrix}
+  \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Novo espaço após aplicação de $T$}
+\begin{itemize}
+  \item O ângulo entre eixo $X$ e $x=y$ muda
+\end{itemize}
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image-3.png. Replace with actual image.}}
+\end{frame}
+
+\begin{frame}{Porque aplicamos $T$?}
+\begin{itemize}
+  \item Queremos reflexões ópticas
+  \item Após aplicar $T$, podemos refletir todo o espaço
+  \item Velocidade transformada igual à posição transformada
+  \item Vamos analisar:
+    \begin{itemize}
+      \item Reflexão na parede $x(t) = 0$
+      \item Reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reflexão no eixo $Y$}
+\begin{itemize}
+  \item Após reflexão na parede: $\vec{\dot p'} = \begin{pmatrix} -\sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
+  \item Ângulo antes e depois iguais $\Rightarrow$ reflexão óptica
+\end{itemize}
+
+\includegraphics[width=\linewidth]{example-image}
+\captionof*{figure}{\textit{Placeholder for image-4.png. Replace with actual image.}}
+
+\[
+\blacksquare \; 1/2
+\]
+\end{frame}
+
+\begin{frame}{Reflexão no eixo $Y = \sqrt{\frac{M}{m}}X$}
+\begin{itemize}
+  \item Conservação de momento e energia:
+  \[
+  \begin{cases}
+  mu + Mv = K_1 \\
+  mu^2 + Mv^2 = K_2
+  \end{cases}
+  \]
+  \item Em coordenadas transformadas:
+  \[
+  \begin{cases}
+  \vec{m} \cdot \vec{\dot p'} = K_1 \\
+  |\vec{\dot p'}|^2 = K_2
+  \end{cases}
+  \]
+  \item $\cos \varphi = \cos \psi \Rightarrow$ reflexão óptica
+\end{itemize}
+
+\[
+\blacksquare \; 2/2
+\]
+\end{frame}
+
+\begin{frame}{Número de Reflexões Ópticas}
+\begin{itemize}
+  \item Precisamos mostrar que o número de reflexões é finito
+  \item \textbf{Lemma:}
+    \begin{itemize}
+      \item (a) Máximo número de reflexões num ângulo $\alpha$ é finito
+      \item (b) Esse número é $\lceil \frac{\pi}{\alpha} \rceil$
+      \item (c) Se raio inicial for paralelo a um lado, número é $\lceil \frac{\pi}{\alpha} \rceil - 1$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Prova do Lemma anterior}
+\begin{itemize}
+  \item Consideramos:
+    \begin{itemize}
+      \item Trajetória $\gamma$
+      \item Ângulo $\alpha$
+    \end{itemize}
+  \item (Prova continua nas próximas slides — se necessário)
+\end{itemize}
+\end{frame}
+
+\end{document}
