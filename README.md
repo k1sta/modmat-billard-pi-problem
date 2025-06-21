@@ -152,7 +152,7 @@ Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo en
 - Quando a bola menor reflete na parede, sua velocidade $u$ passa a ser $(-u)$.
 Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmatrix} = \begin{pmatrix} -\sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
 
-- Isso só acontece quando o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
+- Isso só acontece quand    wo o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
 ![alt text](images/image-4.png)
 
 - Então essa reflexão é óptica. 
@@ -231,16 +231,20 @@ Com todas as ferramentas que criamos, podemos, agora, analisar a excepcionalidad
 
 ![alt text](images/image5.png)
 
-Dessa maneira, pelo Lema (C), o número de reflexões nos "lados do ângulo $\alpha$" é igual a $[\pi/\alpha]$, caso $\pi/\alpha$ não seja um inteiro. Nesse caso:
+Dessa maneira, o número de reflexões nos "lados do ângulo $\alpha$" é igual a $[\pi/\alpha]$, mas nada garante que $\pi/\alpha$ será um número inteiro, na verdade:
 
 $$
 \alpha = \arctan{\sqrt{\frac{m}{M}}} = \arctan{\sqrt{\frac{m}{m \cdot 100^N}}} = \arctan{(10^{-N})}
 $$
 
+
+<!-- SLIDE 20-->
+### O caso simples
+
 Repare que, para $N=0$:
 
 $$
-\alpha = \arctan (1) \implies \alpha = \frac{\pi}{4} \newline \frac{\pi}{\alpha} = 4
+\alpha  = \arctan(10^0) = \arctan(1) = \frac{\pi}{4}
 $$
 
 Então a primeira parte do Lema (c) vale: 
@@ -249,20 +253,19 @@ $$
 \Pi(0)=[4] - 1 = 3
 $$ 
 
-Entretanto, para $N\ge1$, $\alpha = \arctan(10^{-N})$ não é um ângulo do tipo $\pi/c$ com $c\ge1$ tal que $c\in\mathbb{N}$. Portanto, é um ângulo arbitrário que não consegue mensurar um número racional de graus $(180/k)\degree$. Nesse contexto, a segunda parte do Lema (C) é aplicável e consequentemente achamos a fórmula exata:
+<!-- SLIDE 21 -->
+### Demais Casos
+
+Para $N\ge1$, $\alpha = \arctan(10^{-N})$ não é facilmente calculável, é um ângulo arbitrário que não consegue mensurar um número racional de graus $(180/k)\degree$. Nesse contexto, a segunda parte do lema é aplicável e consequentemente achamos a fórmula exata:
 
 $$
 \Pi(N) = \left[\frac{\pi}{\arctan(10^{-N})}\right]
 $$
 
-<!-- 
-proof roadmap
-k começa sempre paralelo ao eixo y pois, por hipotese, a bola m começa em repouso
 
-de acordo com o lema 2 (c), o numero de reflexoes para o angulo $\alpha$ é $\frac{\pi}{\alpha}, a menos que isso seja um inteiro, mas no nosso caso:
-
-
--->
+Podemos realizar uma aproximação para $\arctan(10^{-N})$ para simplificar a nossa solução exata. 
+<!-- Slide 22 -->
+Recorde-se que:
 
 $$
 \arctan{x} = \int^x_0{\frac{dt}{1+t^2}} = \int^x_0 \sum^{\infty}_{n=0}(-t^2)^ndt = \sum^{\infty}_{n=0}\frac{(-1)^nx^{2n+1}}{2n+1}
@@ -272,13 +275,54 @@ $$
 \arctan{x} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots
 $$
 
-    
- logo, 
+Obs: como $x = 10^{-N}$, e $N \in \mathbb{N}$, então $1\geq x>0$.
 
+logo, $\arctan{x} \approx x$ quando $\lim{x \rightarrow 0}$.
+
+E, consequentemente:
+$$
+\lim_{x\rarr 0}\left( \frac{1}{\arctan{x}} - \frac{1}{x} \right)= 0
+$$
+
+
+
+
+<!-- Slide 23 -->
+## Demais Casos (continuação)
+Dessa forma, temos:
+$$
+\frac{1}{\arctan{x}} \gt \frac{1}{x} \implies \frac{\pi}{\arctan{x}} \gt \frac{\pi}{x}
+$$
+
+Substituindo na formula
+$$
+\Pi(N) = \left[\frac{\pi}{\arctan(10^{-N})}\right] \approx \left[ \frac{\pi}{10^{-N}}\right] = \pi \cdot 10^{N}
+$$
+
+- Por causa da função de truncamento que usamos, a aproximação de fato é uma igualdade para, comprovadamente, ao menos $0 < N < 50.000.000$. Mas não está garantido para todo $N$.
+- Apesar disso, podemos tentar prever o erro máximo do método:
+
+
+<!-- Slide 24 -->
+## Erro máximo do método
+- Da prova anterior, temos que:
+$$
+\lim_{N\rarr\infty} \left(\frac{\pi}{\arctan{10^{-N}}} - \frac{\pi}{10^{-N}} \right) = 0
+$$
+- Então quando $N$ é grande, temos duas opções:
+    - Opção 1: (lembrando do Lema (c))
+       $\Pi(N) = \left [ \frac{\pi}{\arctan{(10^{-N})}}\right] = [\pi 10^N]$
+       $\Pi(N) = [(3.1415\dots a_{N-1} a_{N})10^N]=31415\dots a_{N-1}a_N$
+       Ou seja, nesse caso, o método de fato computa os $N$ primeiros dígitos corretamente.  
+    - Opção 2: (lembrando do Lema (b))
+       $\Pi(N) = \left [ \frac{\pi}{\arctan{(10^{-N})}}\right] = [\pi 10^N]+1$
+       $\Pi(N) =[(3.1415\dots a_{N-1} a_{N})10^N]=31415\dots a_{N-1}a_N+1$
+       Ou seja, nesse caso, o método falha em computar apenas o último dígito, e somente em 1 unidade.
 
 <!-- Referência -->
 ## Referências
 1. GALPERIN, G. PLAYING POOL WITH π (THE NUMBER π FROM A BILLIARD POINT OF VIEW). 9 dez. 2003.
-2. 3BLUE1BROWN. The most unexpected answer to a counting puzzle. YouTube, 13 jan. 2019. Disponível em: <https://youtu.be/HEfHFsfGXjs>. Acesso em: 21 jun. 2025.
-3. 3BLUE1BROWN. There’s more to those colliding blocks that compute pi. YouTube, 13 mar. 2025. Disponível em: <https://youtu.be/6dTyOl1fmDo>. Acesso em: 21 jun. 2025.
-4. STAND-UP MATHS. We calculated pi with colliding blocks. Youtube, 13 mar. 2025. Disponível em: <https://youtu.be/vlUTlbZT4ig>. Acesso em: 21 jun. 2025.
+2. 3BLUE1BROWN. The most unexpected answer to a counting puzzle. YouTube, 13 jan. 2019. Disponível em: <https://youtu.be/HEfHFsfGXjs>. Acesso em: 19 jun. 2025.
+3. 3BLUE1BROWN. There’s more to those colliding blocks that compute pi. YouTube, 13 mar. 2025. Disponível em: <https://youtu.be/6dTyOl1fmDo>. Acesso em: 19 jun. 2025.
+4. STAND-UP MATHS. We calculated pi with colliding blocks. Youtube, 13 mar. 2025. Disponível em: <https://youtu.be/vlUTlbZT4ig>. Acesso em: 19 jun. 2025.
+
