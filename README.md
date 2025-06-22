@@ -22,6 +22,8 @@ Leonardo Lima Santos, Lucas Pimentel Alves da Costa, Pedro Kury Kitagawa
     - A bola $M$ inicialmente possui velocidade V em direção à bola $m$
 
 
+![alt text](images/image.png)
+
 <!-- SLIDE 3 -->
 ## Variáveis e Suposições do Sistema
 
