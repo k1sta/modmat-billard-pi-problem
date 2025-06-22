@@ -152,7 +152,7 @@ Como vamos aplicar a transformação $T$ no espaço inteiro, então o ângulo en
 - Quando a bola menor reflete na parede, sua velocidade $u$ passa a ser $(-u)$.
 Dessa forma $\vec{\dot p'} = \begin{pmatrix} \sqrt{m}(-u) \\ \sqrt{M}v \end{pmatrix} = \begin{pmatrix} -\sqrt{m}u \\ \sqrt{M}v \end{pmatrix}$
 
-- Isso só acontece quand    wo o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
+- Isso só acontece quando o ângulo $\varphi$ que a trajetória faz antes de atingir o eixo $Y$ faz com o eixo $Y$ é igual ao ângulo $\psi$ que a trajetória faz depois de atingir o eixo $Y$ com o eixo $Y$.
 ![alt text](images/image-4.png)
 
 - Então essa reflexão é óptica. 
@@ -264,6 +264,7 @@ $$
 
 
 Podemos realizar uma aproximação para $\arctan(10^{-N})$ para simplificar a nossa solução exata. 
+
 <!-- Slide 22 -->
 Recorde-se que:
 
@@ -296,7 +297,7 @@ $$
 
 Substituindo na formula
 $$
-\Pi(N) = \left[\frac{\pi}{\arctan(10^{-N})}\right] \approx \left[ \frac{\pi}{10^{-N}}\right] = \pi \cdot 10^{N}
+\Pi(N) = \left[\frac{\pi}{\arctan(10^{-N})}\right] \approx \left[ \frac{\pi}{10^{-N}}\right] = \left[\pi \cdot 10^{N}\right]
 $$
 
 - Por causa da função de truncamento que usamos, a aproximação de fato é uma igualdade para, comprovadamente, ao menos $0 < N < 50.000.000$. Mas não está garantido para todo $N$.
