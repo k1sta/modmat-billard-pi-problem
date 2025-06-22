@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usetheme{metropolis} % modern, clean theme
+\setbeamerfont{section title}{size=\Huge}
 
 % Document metadata inferred from Slide 1
 \title{Jogando Sinuca com $\pi$}
@@ -16,6 +17,14 @@
 \begin{document}
 
 \maketitle
+
+\begin{frame}[plain]
+    \centering
+    \vfill
+    {\Huge \usebeamerfont{section title}\usebeamercolor[fg]{section title}Identificação do Problema}
+    \vfill
+\end{frame}
+
 
 % Slide 2
 \begin{frame}{Definição do Problema}
@@ -31,6 +40,7 @@
       \end{itemize}
   \end{itemize}
 \end{frame}
+
 
 % Slide 2+1
 \begin{frame}{Definição do Problema}
@@ -83,6 +93,14 @@
     \item $M$ segue com $-V$ indefinidamente
   \end{enumerate}
 \end{frame}
+
+\begin{frame}[plain]
+    \centering
+    \vfill
+    {\Huge \usebeamerfont{section title}\usebeamercolor[fg]{section title}Modelagem do Problema}
+    \vfill
+\end{frame}
+
 
 % Slide 6
 \begin{frame}{O espaço de configuração do sistema}
@@ -421,6 +439,13 @@ $$
 
 \end{frame}
 
+\begin{frame}[plain]
+    \centering
+    \vfill
+    {\Huge \usebeamerfont{section title}\usebeamercolor[fg]{section title}Solução do Problema}
+    \vfill
+\end{frame}
+
 % Slide 36
 \begin{frame}{Precisão da Aproximação}
   Empiricamente, pode-se verificar que $\Pi(N) = \left\lfloor\pi*10^N\right\rfloor$ para $N \le 50,000,000$. Contudo, para $N > 50,000,000$ algo particular do método deve ser considerado.
@@ -461,6 +486,14 @@ $$
 
 Entretanto, o número de dígitos errados pode ser maior caso existam $k$ dígitos 9 seguidos ao final do número.
 \end{frame}
+
+\begin{frame}[plain]
+    \centering
+    \vfill
+    {\Huge \usebeamerfont{section title}\usebeamercolor[fg]{section title}Experimentos}
+    \vfill
+\end{frame}
+
 % Slide 40
 \begin{frame}[allowframebreaks]{Referências}
   \begin{thebibliography}{}
